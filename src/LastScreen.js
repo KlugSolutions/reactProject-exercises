@@ -3,6 +3,8 @@ import {
     Text,
     View,
 } from 'react-native'
+import MainScreen from "./MainScreen";
+
 import MyButton from "./MyButton";
 
 import Style from "./Style";
@@ -15,15 +17,16 @@ const LastScreen = ({ navigation, route }) => {
         }
     )
     const firstName = route.params ? route.params.firstName : ""
+    const home = route.params ? route.params.home : ""
     const main = route.params ? route.params.main : ""
-    const last = 'LastScreen'
+    
    
     const goBack = () => {
-        navigation.navigate("MainScreen", { firstName }, { last })
+        navigation.navigate("MainScreen", { firstName, last: 'LastScreen' })
 
     }
     const changeScreen = () => {
-        navigation.navigate("HomeScreen", { last })
+        navigation.navigate("HomeScreen", { last: 'LastScreen' })
     }
     return (
         <View style={Style.view}>
@@ -39,7 +42,7 @@ const LastScreen = ({ navigation, route }) => {
                 buttonText={"Wróć do drugiego ekranu"}
                 color={"#ccc"}
             />
-           <Text style={Style.textSmall}>Wywołano z: {main}</Text>
+           <Text style={Style.textSmall}>Wywołano z: {home} {main}</Text>
         </View>
 
     )
