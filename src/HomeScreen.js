@@ -69,7 +69,9 @@ const HomeScreen = ({ navigation }) => {
                 onChangeText={setName}
                 value={name}
             />
-            
+            <Text style={Style.textSmall}>
+                {name && 'Twoje imię to: ' + name}
+            </Text>
             <MyButton
                 onPressFunction={changeScreen}
                 buttonText={"Przejdź do drugiego ekranu"}

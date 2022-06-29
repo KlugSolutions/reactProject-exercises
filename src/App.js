@@ -74,6 +74,7 @@ const App /*: () => Node */ = () => {
           component={LastScreen}
           
         />
+        
       </Tab.Navigator>
     </NavigationContainer>
   )
