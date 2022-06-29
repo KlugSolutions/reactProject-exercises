@@ -7,7 +7,7 @@ import MyButton from "./MyButton";
 
 import Style from "./Style";
 
-const LastScreen = ({navigation, route}) => {
+const LastScreen = ({ navigation, route }) => {
 
     useEffect(
         () => {
@@ -15,12 +15,15 @@ const LastScreen = ({navigation, route}) => {
         }
     )
     const firstName = route.params ? route.params.firstName : ""
+    const home = route.params ? route.params.home : ""
+    const main = route.params ? route.params.main : ""
+    const last = 'LastScreen'
     const goBack = () => {
-        navigation.navigate("MainScreen")
-        
+        navigation.navigate("MainScreen", { firstName }, { last })
+
     }
     const changeScreen = () => {
-        navigation.navigate("HomeScreen")
+        navigation.navigate("HomeScreen", { last })
     }
     return (
         <View style={Style.view}>
@@ -43,7 +46,7 @@ const LastScreen = ({navigation, route}) => {
                 <Text>Powrót</Text>
             </Pressable> */}
         </View>
-        
+
     )
 }
 

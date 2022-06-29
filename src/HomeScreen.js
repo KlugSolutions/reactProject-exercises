@@ -8,7 +8,7 @@ import MyButton from "./MyButton";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Style from "./Style";
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation, route }) => {
 
     useEffect(() => {
 
@@ -18,13 +18,16 @@ const HomeScreen = ({ navigation }) => {
 
     const [name, setName] = useState("")
 
+    const last = route.params ? route.params.last : ""
+    const main = route.params ? route.params.main : ""
+    const home = 'HomeScreen'
     const changeScreen = () => {
         saveName()
-        navigation.navigate("MainScreen", { firstName: name })
-        // navigation.replace("Main")
+        navigation.navigate("MainScreen", { firstName: name }, { home })
+
     }
     const goThird = () => {
-        navigation.navigate('LastScreen')
+        navigation.navigate('LastScreen', { firstName: name }, { home })
     }
     const getName = async () => {
         try {
@@ -36,8 +39,8 @@ const HomeScreen = ({ navigation }) => {
             console.log("Błąd odczytu z pamięci: " + e)
         }
     }
-  
-   
+
+
 
     const saveName = async () => {
         try {
@@ -48,7 +51,7 @@ const HomeScreen = ({ navigation }) => {
 
     }
 
-   
+
     const reset = async () => {
         try {
             setName("")
