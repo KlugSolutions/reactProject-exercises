@@ -18,16 +18,16 @@ const HomeScreen = ({ navigation, route }) => {
 
     const [name, setName] = useState("")
 
-    const last = route.params ? route.params.last : ""
-    const main = route.params ? route.params.main : ""
+    
     const home = 'HomeScreen'
+    
     const changeScreen = () => {
         saveName()
-        navigation.navigate("MainScreen", { firstName: name }, { home })
+        navigation.navigate("MainScreen", { firstName: name }, { home: home })
 
     }
     const goThird = () => {
-        navigation.navigate('LastScreen', { firstName: name }, { home })
+        navigation.navigate('LastScreen', { firstName: name }, { home: home })
     }
     const getName = async () => {
         try {
@@ -91,12 +91,9 @@ const HomeScreen = ({ navigation, route }) => {
                 buttonText={"Wyczyść pamięć"}
                 color={'#ccc'}
             />
-            {/* <Pressable 
-                onPress={changeScreen}
-                style={styles.pressable}
-                >
-                <Text>Przejdź do drugiego ekranu</Text>
-            </Pressable> */}
+            <Text style={Style.textSmall}>
+                Wywołano z: 
+            </Text>
         </View>
 
     )

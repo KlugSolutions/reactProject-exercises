@@ -15,15 +15,14 @@ const MainScreen = ({ navigation, route }) => {
         }
     )
     const firstName = route.params ? route.params.firstName : ""
-    const last = route.params ? route.params.last : ""
-    const home = route.params ? route.params.home : ""
+    
     const main = 'MainScreen'
     const goBack = () => {
-        navigation.goBack('HomeScreen', { main })
+        navigation.goBack('HomeScreen', { main: main })
         // navigation.replace("Home")
     }
     const changeScreen = () => {
-        navigation.navigate("LastScreen", { firstName }, { main })
+        navigation.navigate("LastScreen", { firstName }, { main: main })
     }
     return (
         <View style={Style.view}>
@@ -40,7 +39,7 @@ const MainScreen = ({ navigation, route }) => {
                 color={"#ccc"}
             />
             <Text style={Style.textSmall}>Wywołano z:
-                {last}? {last} : {home}</Text>
+                </Text>
         </View>
 
     )
