@@ -18,7 +18,7 @@ const MainScreen = ({ navigation, route }) => {
     
     const main = 'MainScreen'
     const goBack = () => {
-        navigation.goBack('HomeScreen', { main: main })
+        navigation.navigate('HomeScreen', { main: main })
         // navigation.replace("Home")
     }
     const changeScreen = () => {
